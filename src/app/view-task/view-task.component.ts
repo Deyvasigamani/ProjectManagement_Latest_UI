@@ -79,6 +79,8 @@ endTask(task: Task): void{
   }
 
   sortByCompleted(): void{
+    this.taskService.getAllCompletedTask()
+    .subscribe(tasks => this.tasks = tasks)
      /*this.tasks.sort((a, b) => {
         if (a.status < b.status) return -1;
         else if (a.status > b.status) return 1;

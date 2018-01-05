@@ -72,6 +72,17 @@ export class TaskService {
     );
   }
 
+ 
+
+
+  getAllCompletedTask(): Observable<Task[]>{
+    return this.http.get<Task[]>(this.rootUrl+"/task/allTaskcompleted")
+        .pipe(
+          tap(Task => this.log(`fetched allCompletedTasks`)),
+          catchError(this.handleError('getallCompletedTask', []))
+        );
+    }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
